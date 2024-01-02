@@ -1,3 +1,10 @@
 {
-  "users": []
+  "users": [
+    {
+      "email": "lawrinov.yackov@yandex.ru",
+      "password": "$2a$10$ULlLUguCld2rGTvnkmuJZOt.xGVMdJ9Zeiem0Fb6Okj06xvqpq72y",
+      "name": "Яков Лавринов",
+      "id": 1
+    }
+  ]
 }
