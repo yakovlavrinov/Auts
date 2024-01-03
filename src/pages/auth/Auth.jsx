@@ -17,6 +17,7 @@ const Auth = () => {
 
   const authUserFunc = (data) => {
     dispatch(authUser({ user: data, params: status }));
+    console.log(data);
   };
 
   return (

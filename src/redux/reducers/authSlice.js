@@ -7,6 +7,7 @@ export const authUser = createAsyncThunk(
       const { user, params } = paylod;
 
       const res = await axios.post(`http://localhost:4444/${params}`, user);
+
       if (res.status !== 201 && params === "register") {
         throw new Error("Ошибка при создании");
       }
@@ -28,12 +29,12 @@ const initialState = {
   token: null,
 };
 
-export const authSlice = createSlice({
+const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(authUser.pending, (state, action) => {
+    builder.addCase(authUser.pending, (state) => {
       state.status = "loading";
       state.error = null;
       state.token = null;
@@ -44,7 +45,6 @@ export const authSlice = createSlice({
     });
     builder.addCase(authUser.fulfilled, (state, action) => {
       state.status = "connect";
-      state.error = null;
       state.token = action.payload.accessToken;
       state.user = action.payload.user;
     });
